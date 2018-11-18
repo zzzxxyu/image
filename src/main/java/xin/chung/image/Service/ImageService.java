@@ -14,12 +14,12 @@ import java.util.List;
 public class ImageService {
     public List<Image> match(String type) {
         //String s0 = "src\\img\\mbtx\\" + type + ".jpg", s = null;
-        String s0 = "E:\\IDEA-1.6\\VueAdmin-master\\src\\assets\\img\\mbtx\\" + type + ".jpg", s = null;
+        String s0 = "E:\\IDEA-1.6\\img\\mbtx\\" + type + ".jpg", s = null;
         Image image = new Image(Fingerprint.getFingerprintPhash(s0), 0, -1);
         //s0 =  getFingerprint("F:\\image processing\\测试图片素材\\images(0).jpg");
 
         List<Image> imageList = new ArrayList<>();
-        for (int i = 1; i <= 300; i++) {
+        for (int i = 1; i <= 299; i++) {
             //s = "src\\img\\" + type + "\\" + type + " (" + i + ").jpg";
             s = "E:\\IDEA-1.6\\VueAdmin-master\\src\\assets\\img\\" + type + "\\" + type + " (" + i + ").jpg";
             imageList.add(new Image(Fingerprint.getFingerprintPhash(s), i, Fingerprint.hammingDistance(image.getPHash(), Fingerprint.getFingerprintPhash(s))));
@@ -36,7 +36,7 @@ public class ImageService {
 
     public String changeName(String type){
         String result = "";
-        String directory = "E:\\IDEA-1.6\\VueAdmin-master\\src\\assets\\img\\mbtx";
+        String directory = "E:\\IDEA-1.6\\img\\mbtx";
         File dir = new File(directory);
         String [] fileName = dir.list();
         if(fileName.length == 1){
@@ -56,7 +56,7 @@ public class ImageService {
         if (!file.isEmpty()) try {
             // 文件保存路径
             //File directory = new File("");// 参数为空
-            String directory = "E:\\IDEA-1.6\\VueAdmin-master\\src\\assets\\img\\mbtx";
+            String directory = "E:\\IDEA-1.6\\img\\mbtx";
             //删除文件夹下所有文件
             try {
                 //delAllFile(directory.getCanonicalPath() + "\\src\\img\\mbtx\\"); // 删除完里面所有内容
